@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -13,8 +12,7 @@ import { GameBoardComponent } from './game-board/game-board.component';
   ],
   imports: [
     BrowserModule,
-    CommonModule,
-    FormsModule
+    CommonModule
   ],
   bootstrap: [AppComponent]
 })

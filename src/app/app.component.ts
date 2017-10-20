@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app';
+
+  public winner: string;
+
+  public turn: string;
+
+  public onResult(name: string): void {
+    this.winner = name;
+  }
+
+  public onTurnChange(name: string): void {
+    this.turn = name;
+  }
 }

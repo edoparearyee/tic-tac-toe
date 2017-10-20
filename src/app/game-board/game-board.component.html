@@ -1,0 +1,7 @@
+<table>
+  <tr class="row" *ngFor="let row of state; let r = index">
+    <td class="col" *ngFor="let col of row; let c = index" (click)="onClick(r, c)">
+      {{ col }}
+    </td>
+  </tr>
+</table>

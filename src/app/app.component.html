@@ -6,12 +6,15 @@
   #game>
 </app-game-board>
 
-<ng-template [ngIf]="!winner">
-  <p class="lead turn">{{ turn }}'s turn</p>
+<ng-template [ngIf]="!hasResult">
+  <p class="lead turn" *ngIf="player1Turn">Player 1's turn</p>
+  <p class="lead turn" *ngIf="player2Turn">Player 2's turn</p>
 </ng-template>
 
-<ng-template [ngIf]="winner">
-  <p class="lead winner">{{ winner }} has won!</p>
+<ng-template [ngIf]="hasResult">
+  <p class="lead winner" *ngIf="player1Won">Player 1 has won!</p>
+  <p class="lead winner" *ngIf="player2Won">Player 2 has won!</p>
+  <p class="lead draw" *ngIf="isDraw">Match is a draw</p>
 
   <button type="button" (click)="game.reset()">Reset</button>
 </ng-template>

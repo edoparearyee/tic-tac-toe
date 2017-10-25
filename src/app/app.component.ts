@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Result, Player } from './game-board/game-board.component';
 
 @Component({
   selector: 'app-root',
@@ -7,15 +8,39 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  public winner: string;
+  public result: Result;
 
-  public turn: string;
+  public turn: Player;
 
-  public onResult(name: string): void {
-    this.winner = name;
+  public get player1Won(): boolean {
+    return this.result === Result.player1;
   }
 
-  public onTurnChange(name: string): void {
-    this.turn = name;
+  public get player2Won(): boolean {
+    return this.result === Result.player2;
+  }
+
+  public get isDraw(): boolean {
+    return this.result === Result.draw;
+  }
+
+  public get hasResult(): boolean {
+    return this.result !== Result.inProgress;
+  }
+
+  public get player1Turn(): boolean {
+    return this.turn === Player.player1;
+  }
+
+  public get player2Turn(): boolean {
+    return this.turn === Player.player2;
+  }
+
+  public onResult(result: Result): void {
+    this.result = result;
+  }
+
+  public onTurnChange(player: Player): void {
+    this.turn = player;
   }
 }

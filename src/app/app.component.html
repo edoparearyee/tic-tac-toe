@@ -1,20 +1,18 @@
 <h1>TicTacToe</h1>
 
-<app-game-board
-  (onResult)="onResult($event)"
-  (onTurnChange)="onTurnChange($event)"
-  #game>
-</app-game-board>
+<app-game-board></app-game-board>
 
-<ng-template [ngIf]="!hasResult">
-  <p class="lead turn" *ngIf="player1Turn">Player 1's turn</p>
-  <p class="lead turn" *ngIf="player2Turn">Player 2's turn</p>
+<ng-template [ngIf]="!(hasResult | async)">
+  <p class="lead">Current Player:
+    <span class="player-one" *ngIf="isPlayerOneTurn | async">Player 1</span>
+    <span class="player-two" *ngIf="isPlayerTwoTurn | async">Player 2</span>
+  </p>
 </ng-template>
 
-<ng-template [ngIf]="hasResult">
-  <p class="lead winner" *ngIf="player1Won">Player 1 has won!</p>
-  <p class="lead winner" *ngIf="player2Won">Player 2 has won!</p>
-  <p class="lead draw" *ngIf="isDraw">Match is a draw</p>
+<ng-template [ngIf]="hasResult | async">
+  <p class="lead winner" *ngIf="isPlayerOneWin | async">Player 1 has won!</p>
+  <p class="lead winner" *ngIf="isPlayerTwoWin | async">Player 2 has won!</p>
+  <p class="lead draw" *ngIf="isDraw | async">Match is a draw</p>
 
   <button type="button" (click)="game.reset()">Reset</button>
 </ng-template>

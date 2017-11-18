@@ -2,20 +2,18 @@ app-game-board {
   margin-bottom: 30px;
 }
 
-input {
-  min-height: 50px;
-  font-size: 40px;
-}
-
-
 .winner {
-  color: greenyellow;
+  color: #43a047;
 }
 
 .draw {
-  color: lightblue;
+  color: #1565c0;
 }
 
-.turn {
-  color: blue;
+.player-one {
+  color: #ff5722;
+}
+
+.player-two {
+  color: #4527a0;
 }

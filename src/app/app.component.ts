@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { Result, Player } from './game-board/game-board.component';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+
+import { Player, GameState } from './shared';
+import { GameService } from './game';
+
 
 @Component({
   selector: 'app-root',
@@ -8,39 +13,35 @@ import { Result, Player } from './game-board/game-board.component';
 })
 export class AppComponent {
 
-  public result: Result;
+  constructor(public game: GameService) { }
 
-  public turn: Player;
-
-  public get player1Won(): boolean {
-    return this.result === Result.player1;
+  public get isPlayerOneWin(): Observable<boolean> {
+    return this.game.state$
+      .map((state) => state === GameState.playerOneWin);
   }
 
-  public get player2Won(): boolean {
-    return this.result === Result.player2;
+  public get isPlayerTwoWin(): Observable<boolean> {
+    return this.game.state$
+      .map((state) => state === GameState.playerTwoWin);
   }
 
-  public get isDraw(): boolean {
-    return this.result === Result.draw;
+  public get isDraw(): Observable<boolean> {
+    return this.game.state$
+      .map((state) => state === GameState.draw);
   }
 
-  public get hasResult(): boolean {
-    return this.result !== Result.inProgress;
+  public get hasResult(): Observable<boolean> {
+    return this.game.state$
+      .map((state) => state !== GameState.inProgress);
   }
 
-  public get player1Turn(): boolean {
-    return this.turn === Player.player1;
+  public get isPlayerOneTurn(): Observable<boolean> {
+    return this.game.currentPlayer$
+      .map((player) => player === Player.one);
   }
 
-  public get player2Turn(): boolean {
-    return this.turn === Player.player2;
-  }
-
-  public onResult(result: Result): void {
-    this.result = result;
-  }
-
-  public onTurnChange(player: Player): void {
-    this.turn = player;
+  public get isPlayerTwoTurn(): Observable<boolean> {
+    return this.game.currentPlayer$
+      .map((player) => player === Player.two);
   }
 }

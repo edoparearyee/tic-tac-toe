@@ -2,17 +2,21 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { AppComponent } from './app.component';
+import { GameService } from './game';
 import { GameBoardComponent } from './game-board/game-board.component';
+import { AppComponent } from './app.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    GameBoardComponent
-  ],
   imports: [
     BrowserModule,
     CommonModule
+  ],
+  providers: [
+    GameService
+  ],
+  declarations: [
+    AppComponent,
+    GameBoardComponent,
   ],
   bootstrap: [AppComponent]
 })

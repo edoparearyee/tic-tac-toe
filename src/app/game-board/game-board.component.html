@@ -1,7 +1,7 @@
 <table>
-  <tr class="row" *ngFor="let row of state; let r = index">
-    <td class="col" *ngFor="let col of row; let c = index" (click)="onClick(r, c)">
-      {{ col }}
+  <tr class="row" *ngFor="let row of board | async ; let r = index">
+    <td class="col" *ngFor="let col of row; let c = index" (click)="game.updateBoard(r, c)">
+      {{ getXO(col) }}
     </td>
   </tr>
 </table>

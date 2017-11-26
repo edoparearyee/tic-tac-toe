@@ -13,6 +13,12 @@ module.exports = function (config) {
       require('@angular/cli/plugins/karma'),
       require('karma-spec-reporter')
     ],
+    customLaunchers: {
+      ChromeCI: {
+        base: 'Chrome',
+        flags: ['--headless', '--no-sandbox']
+      }
+    },
     client:{
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },

@@ -1,5 +1,7 @@
 # TicTacToe
 
+[![CircleCI](https://circleci.com/gh/edoparearyee/tic-tac-toe.svg?style=shield)](https://circleci.com/gh/edoparearyee/tic-tac-toe)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.9.
 
 ## Development server

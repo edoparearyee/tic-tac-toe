@@ -6,20 +6,20 @@ import { Player, GameState, Board } from '../shared';
 @Injectable()
 export class GameService {
 
-  private board: Board = [
+  public board: Board = [
     [null, null, null],
     [null, null, null],
     [null, null, null]
   ];
-  private currentPlayer = Player.one;
-  private state: GameState = GameState.inProgress;
+  public currentPlayer = Player.one;
+  public state: GameState = GameState.inProgress;
 
   public board$: BehaviorSubject<Board> = new BehaviorSubject(this.board);
   public currentPlayer$: BehaviorSubject<Player> = new BehaviorSubject(this.currentPlayer);
   public state$: BehaviorSubject<GameState> = new BehaviorSubject(this.state);
 
   public updateBoard(row: number, col: number): void {
-    if (!this.board[row][col] && this.state === GameState.inProgress) {
+    if (this.board[row][col] === null && this.state === GameState.inProgress) {
       this.board[row][col] = this.currentPlayer;
       this.board$.next(this.board);
       this.checkResult();

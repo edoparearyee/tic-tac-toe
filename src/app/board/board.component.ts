@@ -5,11 +5,11 @@ import { GameService } from '../game';
 import { Board, Player, XO } from '../shared';
 
 @Component({
-  selector: 'app-game-board',
-  templateUrl: './game-board.component.html',
-  styleUrls: ['./game-board.component.scss']
+  selector: 'app-board',
+  templateUrl: './board.component.html',
+  styleUrls: ['./board.component.scss']
 })
-export class GameBoardComponent {
+export class BoardComponent {
 
   public board: Observable<Board> = this.game.board$;
 

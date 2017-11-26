@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 import { GameService } from './game';
-import { GameBoardComponent } from './game-board/game-board.component';
+import { BoardComponent } from './board';
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -16,7 +16,7 @@ import { AppComponent } from './app.component';
   ],
   declarations: [
     AppComponent,
-    GameBoardComponent,
+    BoardComponent
   ],
   bootstrap: [AppComponent]
 })

@@ -1,5 +1,6 @@
 {
   "name": "tic-tac-toe",
+  "description": "An implementation of the classic game Tic Tac Toe built using Angular",
   "version": "0.0.0",
   "license": "MIT",
   "main": "main.js",

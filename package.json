@@ -13,7 +13,8 @@
     "e2e": "ng e2e",
     "electron": "electron .",
     "prestart:desktop": "ng build --prod",
-    "start:desktop": "electron ."
+    "start:desktop": "electron .",
+    "deploy": "ng build --prod && firebase deploy"
   },
   "private": true,
   "dependencies": {

@@ -17,7 +17,7 @@
 
     <div class="cell text-center">
       <ng-template [ngIf]="!(hasResult | async)">
-        <p class="lead player-current text-center">Current Player:
+        <p class="lead player-current text-center">Turn:
           <span class="player-one" *ngIf="isPlayerOneTurn | async">Player 1</span>
           <span class="player-two" *ngIf="isPlayerTwoTurn | async">Player 2</span>
         </p>

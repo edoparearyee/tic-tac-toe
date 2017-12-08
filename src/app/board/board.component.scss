@@ -12,10 +12,10 @@
 
 .col {
   border: 5px solid $white;
-  height: 5rem;
-  width: 5rem;
+  height: 4.7rem;
   text-align: center;
   transition: background-color .2s ease;
+  width: 4.7rem;
 
   &.col-left { border-left-color: transparent; }
   &.col-right { border-right-color: transparent; }

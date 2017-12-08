@@ -1,9 +1,8 @@
 @import '~foundation-sites/scss/foundation';
 @import "../scss/settings";
 
-.top-bar,
-.game-board {
-  margin-bottom: 2rem;
+.top-bar {
+  margin-bottom: 1rem;
 }
 
 .logo  {
@@ -11,7 +10,17 @@
   margin-right: 10px;
 }
 
+.lead {
+  margin-bottom: .5rem;
+}
+
 .draw { color: $primary-color; }
 .winner { color: $success-color; }
 .player-one { color: $warning-color; }
 .player-two { color: $alert-color; }
+
+@media screen and (min-width: 40em) {
+  .top-bar {
+    margin-bottom: 2rem;
+  }
+}

@@ -40,7 +40,7 @@ export class BoardComponent {
   }
 
   private getLineXY(x: number, y: number): Observable<any> {
-    const tileSize = 105;
+    const tileSize = 94.5;
     return this.game.winningTies$.pipe(
       take(1),
       map((tiles) => {

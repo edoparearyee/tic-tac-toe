@@ -1,5 +1,11 @@
-app-game-board {
-  margin-bottom: 30px;
+.game-board,
+.top-bar {
+  margin-bottom: 2rem;
+}
+
+.logo  {
+  height: 2rem;
+  margin-right: 10px;
 }
 
 .winner {

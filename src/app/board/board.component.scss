@@ -1,11 +1,29 @@
+@import '~foundation-sites/scss/foundation';
+@import "../../scss/settings";
+
 :host {
   display: inline-block;
 }
 
 .col {
-  border: 1px solid black;
-  font-size: 50px;
-  height: 75px;
-  width: 75px;
+  border: 5px solid $white;
+  height: 5rem;
+  width: 5rem;
   text-align: center;
+
+  &.col-left {
+    border-left-color: transparent;
+  }
+
+  &.col-right {
+    border-right-color: transparent;
+  }
+
+  .row-top & {
+    border-top-color: transparent;
+  }
+
+  .row-bottom & {
+    border-bottom-color: transparent;
+  }
 }

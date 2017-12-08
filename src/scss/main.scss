@@ -1,0 +1,14 @@
+
+@import '~foundation-sites/scss/foundation';
+@import "settings";
+
+@include add-foundation-colors;
+
+@include foundation-global-styles;
+@include foundation-xy-grid-classes;
+@include foundation-typography;
+@include foundation-button;
+@include foundation-menu;
+@include foundation-menu-icon;
+@include foundation-table;
+@include foundation-top-bar;

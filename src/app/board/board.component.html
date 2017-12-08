@@ -1,6 +1,18 @@
 <table>
-  <tr class="row" *ngFor="let row of board | async ; let r = index">
-    <td class="col" *ngFor="let col of row; let c = index" (click)="game.updateBoard(r, c)">
+  <tr
+    class="row" *ngFor="let row of board | async ; let r = index"
+    [ngClass]="{
+      'row-top': r === 0,
+      'row-bottom': r === 2
+    }">
+    <td
+      class="col stat"
+      [ngClass]="{
+        'col-left': c === 0,
+        'col-right': c === 2
+      }"
+      *ngFor="let col of row; let c = index"
+      (click)="game.updateBoard(r, c)">
       {{ getXO(col) }}
     </td>
   </tr>

@@ -19,6 +19,13 @@
   </tr>
 </table>
 
-<!-- <svg class="cross">
-  <line x1="0" y1="0" x2="100%" y2="100%" stroke="#fefefe" stroke-width="5"></line>
-</svg> -->
+<svg class="cross" *ngIf="(game.state$ | async) === 0 || (game.state$ | async) === 1">
+  <line
+    [attr.x1]="(getLineXY() | async).x1"
+    [attr.y1]="(getLineXY() | async).y1"
+    [attr.x2]="(getLineXY() | async).x2"
+    [attr.y2]="(getLineXY() | async).y2"
+    stroke="#fefefe"
+    stroke-width="5">
+  </line>
+</svg>

@@ -9,25 +9,27 @@
   </div>
 </div>
 
-<div class="grid-x grid-margin-x">
-  <div class="cell text-center">
-    <app-board class="game-board"></app-board>
-  </div>
+<div class="grid-container fluid">
+  <div class="grid-x grid-margin-x">
+    <div class="cell text-center">
+      <app-board class="game-board"></app-board>
+    </div>
 
-  <div class="cell text-center">
-    <ng-template [ngIf]="!(hasResult | async)">
-      <p class="lead player-current text-center">Current Player:
-        <span class="player-one" *ngIf="isPlayerOneTurn | async">Player 1</span>
-        <span class="player-two" *ngIf="isPlayerTwoTurn | async">Player 2</span>
-      </p>
-    </ng-template>
+    <div class="cell text-center">
+      <ng-template [ngIf]="!(hasResult | async)">
+        <p class="lead player-current text-center">Current Player:
+          <span class="player-one" *ngIf="isPlayerOneTurn | async">Player 1</span>
+          <span class="player-two" *ngIf="isPlayerTwoTurn | async">Player 2</span>
+        </p>
+      </ng-template>
 
-    <ng-template [ngIf]="hasResult | async">
-      <p class="lead winner text-center" *ngIf="isPlayerOneWin | async">Player 1 has won!</p>
-      <p class="lead winner text-center" *ngIf="isPlayerTwoWin | async">Player 2 has won!</p>
-      <p class="lead draw text-center" *ngIf="isDraw | async">Match is a draw</p>
-    </ng-template>
+      <ng-template [ngIf]="hasResult | async">
+        <p class="lead winner text-center" *ngIf="isPlayerOneWin | async">Player 1 has won!</p>
+        <p class="lead winner text-center" *ngIf="isPlayerTwoWin | async">Player 2 has won!</p>
+        <p class="lead draw text-center" *ngIf="isDraw | async">Match is a draw</p>
+      </ng-template>
 
-    <button class="button" type="button" (click)="game.reset()">Reset</button>
+      <button class="button" type="button" (click)="game.reset()">Reset</button>
+    </div>
   </div>
 </div>

@@ -17,10 +17,6 @@
   text-align: center;
   transition: background-color .2s ease;
 
-  &.col-won {
-    background-color: $dark-gray;
-  }
-
   &.col-left { border-left-color: transparent; }
   &.col-right { border-right-color: transparent; }
   .row-top & { border-top-color: transparent; }
@@ -32,6 +28,7 @@
   left: 0;
   height: 100%;
   position: absolute;
+  pointer-events: none;
   right: 0;
   top: 0;
   width: 100%;

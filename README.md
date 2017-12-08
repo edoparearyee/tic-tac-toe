@@ -1,6 +1,13 @@
-# TicTacToe
+# Angular Tic-tac-toe
 
 [![CircleCI](https://circleci.com/gh/edoparearyee/tic-tac-toe.svg?style=shield)](https://circleci.com/gh/edoparearyee/tic-tac-toe)
+
+[![Angular Tic-tac-toe](https://raw.githubusercontent.com/edoparearyee/tic-tac-toe/master/src/assets/icons/android-chrome-192x192.png)](https://angular-tic-tac-toe-4e911.firebaseapp.com/)
+
+An implementation of the classic game Tic-tac-toe (Noughts and crosses) built using Angular and Foundation. With service worker support for offline play.
+
+[Click here to play](https://angular-tic-tac-toe-4e911.firebaseapp.com/)
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.9.
 

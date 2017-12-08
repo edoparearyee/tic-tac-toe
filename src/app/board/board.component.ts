@@ -39,10 +39,28 @@ export class BoardComponent {
     );
   }
 
-  private get(x: number, y: number): Observable<boolean> {
+  private getLineXY(x: number, y: number): Observable<any> {
+    const tileSize = 105;
     return this.game.winningTies$.pipe(
       take(1),
-      map((tiles) => tiles.map(t => JSON.stringify(t)).includes(JSON.stringify([x, y])))
+      map((tiles) => {
+        const startRow = tiles[0][0];
+        const startCol = tiles[0][1];
+        const endRow = tiles[2][0];
+        const endCol = tiles[2][1];
+        let values = { x1: 0, y1: 0, x2: 0, y2: 0 };
+        if (tiles.length) {
+          values = {
+            x1: (startCol === endCol) ? ((startCol + .5) * tileSize) :
+              (startCol > endCol) ? (startCol + 1) * tileSize : startCol * tileSize,
+            y1: (startRow === endRow) ? ((startRow + .5) * tileSize) : startRow * tileSize,
+            x2: (startCol === endCol) ? ((endCol + .5) * tileSize) :
+              (startCol > endCol) ? endCol * tileSize : (endCol + 1) * tileSize,
+            y2: (startRow === endRow) ? ((endRow + .5) * tileSize) : (endRow + 1) * tileSize,
+          };
+        }
+        return values;
+      })
     );
   }
 }

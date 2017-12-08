@@ -1,6 +1,6 @@
 {
   "name": "tic-tac-toe",
-  "description": "An implementation of the classic game Tic Tac Toe built using Angular",
+  "description": "An implementation of the classic game Tic-tac-toe (Noughts and crosses) built using Angular and Foundation. With service worker support for offline play",
   "version": "0.0.0",
   "license": "MIT",
   "main": "main.js",
@@ -14,7 +14,8 @@
     "electron": "electron .",
     "prestart:desktop": "ng build --prod",
     "start:desktop": "electron .",
-    "deploy": "ng build --prod && firebase deploy"
+    "predeploy": "ng build --prod",
+    "deploy": "firebase deploy"
   },
   "private": true,
   "dependencies": {

@@ -1,6 +1,6 @@
-<table>
+<table class="table">
   <tr
-    class="row" *ngFor="let row of board | async ; let r = index"
+    class="row" *ngFor="let row of game.board$ | async ; let r = index"
     [ngClass]="{
       'row-top': r === 0,
       'row-bottom': r === 2
@@ -9,7 +9,8 @@
       class="col stat"
       [ngClass]="{
         'col-left': c === 0,
-        'col-right': c === 2
+        'col-right': c === 2,
+        'col-won': isWinningTile(r, c) | async
       }"
       *ngFor="let col of row; let c = index"
       (click)="game.updateBoard(r, c)">
@@ -17,3 +18,7 @@
     </td>
   </tr>
 </table>
+
+<!-- <svg class="cross">
+  <line x1="0" y1="0" x2="100%" y2="100%" stroke="#fefefe" stroke-width="5"></line>
+</svg> -->

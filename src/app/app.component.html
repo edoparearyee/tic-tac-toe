@@ -26,8 +26,8 @@
       <p class="lead winner text-center" *ngIf="isPlayerOneWin | async">Player 1 has won!</p>
       <p class="lead winner text-center" *ngIf="isPlayerTwoWin | async">Player 2 has won!</p>
       <p class="lead draw text-center" *ngIf="isDraw | async">Match is a draw</p>
-
-      <button class="button" type="button" (click)="game.reset()">Reset</button>
     </ng-template>
+
+    <button class="button" type="button" (click)="game.reset()">Reset</button>
   </div>
 </div>

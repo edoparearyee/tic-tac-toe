@@ -3,6 +3,11 @@
 
 :host {
   display: inline-block;
+  position: relative;
+}
+
+.table {
+  margin-bottom: 0;
 }
 
 .col {
@@ -10,20 +15,24 @@
   height: 5rem;
   width: 5rem;
   text-align: center;
+  transition: background-color .2s ease;
 
-  &.col-left {
-    border-left-color: transparent;
+  &.col-won {
+    background-color: $dark-gray;
   }
 
-  &.col-right {
-    border-right-color: transparent;
-  }
+  &.col-left { border-left-color: transparent; }
+  &.col-right { border-right-color: transparent; }
+  .row-top & { border-top-color: transparent; }
+  .row-bottom & { border-bottom-color: transparent; }
+}
 
-  .row-top & {
-    border-top-color: transparent;
-  }
-
-  .row-bottom & {
-    border-bottom-color: transparent;
-  }
+.cross {
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
 }

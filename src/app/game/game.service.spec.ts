@@ -58,14 +58,38 @@ describe('GameService', () => {
     ];
     gameService.checkResult();
     expect(spy).toHaveBeenCalledTimes(3 + 3 + 2);
-    expect(spy).toHaveBeenCalledWith([gameService.board[0][0], gameService.board[0][1], gameService.board[0][2]]);
-    expect(spy).toHaveBeenCalledWith([gameService.board[1][0], gameService.board[1][1], gameService.board[1][2]]);
-    expect(spy).toHaveBeenCalledWith([gameService.board[2][0], gameService.board[2][1], gameService.board[2][2]]);
-    expect(spy).toHaveBeenCalledWith([gameService.board[0][0], gameService.board[1][0], gameService.board[2][0]]);
-    expect(spy).toHaveBeenCalledWith([gameService.board[0][1], gameService.board[1][1], gameService.board[2][1]]);
-    expect(spy).toHaveBeenCalledWith([gameService.board[0][2], gameService.board[1][2], gameService.board[2][2]]);
-    expect(spy).toHaveBeenCalledWith([gameService.board[0][0], gameService.board[1][1], gameService.board[2][2]]);
-    expect(spy).toHaveBeenCalledWith([gameService.board[0][2], gameService.board[1][1], gameService.board[2][0]]);
+    expect(spy).toHaveBeenCalledWith(
+      [gameService.board[0][0], gameService.board[0][1], gameService.board[0][2]],
+      [[0, 0], [0, 1], [0, 2]]
+    );
+    expect(spy).toHaveBeenCalledWith(
+      [gameService.board[1][0], gameService.board[1][1], gameService.board[1][2]],
+      [[1, 0], [1, 1], [1, 2]]
+    );
+    expect(spy).toHaveBeenCalledWith(
+      [gameService.board[2][0], gameService.board[2][1], gameService.board[2][2]],
+      [[2, 0], [2, 1], [2, 2]]
+    );
+    expect(spy).toHaveBeenCalledWith(
+      [gameService.board[0][0], gameService.board[1][0], gameService.board[2][0]],
+      [[0, 0], [1, 0], [2, 0]]
+    );
+    expect(spy).toHaveBeenCalledWith(
+      [gameService.board[0][1], gameService.board[1][1], gameService.board[2][1]],
+      [[0, 1], [1, 1], [2, 1]]
+    );
+    expect(spy).toHaveBeenCalledWith(
+      [gameService.board[0][2], gameService.board[1][2], gameService.board[2][2]],
+      [[0, 2], [1, 2], [2, 2]]
+    );
+    expect(spy).toHaveBeenCalledWith(
+      [gameService.board[0][0], gameService.board[1][1], gameService.board[2][2]],
+      [[0, 0], [1, 1], [2, 2]]
+    );
+    expect(spy).toHaveBeenCalledWith(
+      [gameService.board[0][2], gameService.board[1][1], gameService.board[2][0]],
+      [[0, 2], [1, 1], [2, 0]]
+    );
   }));
 
   it('should declare a draw', async(() => {
@@ -151,17 +175,17 @@ describe('GameService', () => {
   }));
 
   it('should check lines', async(() => {
-    gameService.checkLine([Player.one, Player.one, Player.one]);
+    gameService.checkLine([Player.one, Player.one, Player.one], [[0, 0], [0, 1], [0, 2]]);
     expect(gameService.state).toEqual(GameState.playerOneWin);
 
     gameService.state = GameState.inProgress;
 
-    gameService.checkLine([Player.two, Player.one, Player.two]);
+    gameService.checkLine([Player.two, Player.one, Player.two], [[0, 0], [0, 1], [0, 2]]);
     expect(gameService.state).toEqual(GameState.inProgress);
 
     gameService.state = GameState.inProgress;
 
-    gameService.checkLine([Player.two, Player.two, Player.two]);
+    gameService.checkLine([Player.two, Player.two, Player.two], [[0, 0], [0, 1], [0, 2]]);
     expect(gameService.state).toEqual(GameState.playerTwoWin);
   }));
 

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { map, take } from 'rxjs/operators';
 
 import { GameService } from '../game';
 import { Board, Player, XO } from '../shared';
@@ -10,8 +11,6 @@ import { Board, Player, XO } from '../shared';
   styleUrls: ['./board.component.scss']
 })
 export class BoardComponent {
-
-  public board: Observable<Board> = this.game.board$;
 
   constructor(public game: GameService) { }
 
@@ -31,5 +30,19 @@ export class BoardComponent {
     }
 
     return symbol;
+  }
+
+  private isWinningTile(x: number, y: number): Observable<boolean> {
+    return this.game.winningTies$.pipe(
+      take(1),
+      map((tiles) => tiles.map(t => JSON.stringify(t)).includes(JSON.stringify([x, y])))
+    );
+  }
+
+  private get(x: number, y: number): Observable<boolean> {
+    return this.game.winningTies$.pipe(
+      take(1),
+      map((tiles) => tiles.map(t => JSON.stringify(t)).includes(JSON.stringify([x, y])))
+    );
   }
 }

@@ -1,5 +1,8 @@
-.game-board,
-.top-bar {
+@import '~foundation-sites/scss/foundation';
+@import "../scss/settings";
+
+.top-bar,
+.game-board {
   margin-bottom: 2rem;
 }
 
@@ -8,18 +11,7 @@
   margin-right: 10px;
 }
 
-.winner {
-  color: #43a047;
-}
-
-.draw {
-  color: #1565c0;
-}
-
-.player-one {
-  color: #ff5722;
-}
-
-.player-two {
-  color: #4527a0;
-}
+.draw { color: $primary-color; }
+.winner { color: $success-color; }
+.player-one { color: $warning-color; }
+.player-two { color: $alert-color; }

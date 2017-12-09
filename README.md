@@ -1,6 +1,7 @@
 # Angular Tic-tac-toe
 
 [![CircleCI](https://circleci.com/gh/edoparearyee/tic-tac-toe.svg?style=shield)](https://circleci.com/gh/edoparearyee/tic-tac-toe)
+[![Coverage Status](https://coveralls.io/repos/github/edoparearyee/tic-tac-toe/badge.svg?branch=master)](https://coveralls.io/github/edoparearyee/tic-tac-toe?branch=master)
 
 [![Angular Tic-tac-toe](https://raw.githubusercontent.com/edoparearyee/tic-tac-toe/master/src/assets/icons/android-chrome-192x192.png)](https://angular-tic-tac-toe-4e911.firebaseapp.com/)
 

@@ -19,3 +19,4 @@ jobs:
           paths:
             - node_modules
       - run: npm run test -- --single-run --no-progress
+      - run: npm run e2e -- --no-progress

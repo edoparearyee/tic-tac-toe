@@ -13,12 +13,12 @@ export class GameService {
   ];
   public currentPlayer = Player.one;
   public state: GameState = GameState.inProgress;
-  public winningTies: number[][] = [];
+  public winningTiles: number[][] = [];
 
   public board$: BehaviorSubject<Board> = new BehaviorSubject(this.board);
   public currentPlayer$: BehaviorSubject<Player> = new BehaviorSubject(this.currentPlayer);
   public state$: BehaviorSubject<GameState> = new BehaviorSubject(this.state);
-  public winningTies$: BehaviorSubject<number[][]> = new BehaviorSubject([]);
+  public winningTiles$: BehaviorSubject<number[][]> = new BehaviorSubject([]);
 
   public updateBoard(row: number, col: number): void {
     if (this.board[row][col] === null && this.state === GameState.inProgress) {
@@ -51,15 +51,15 @@ export class GameService {
     if (this.state === GameState.inProgress) {
       if (line.every(player => player === Player.one)) {
         this.state = GameState.playerOneWin;
-        this.winningTies = tiles;
-        this.winningTies$.next(this.winningTies);
+        this.winningTiles = tiles;
+        this.winningTiles$.next(this.winningTiles);
         return;
       }
 
       if (line.every(player => player === Player.two)) {
         this.state = GameState.playerTwoWin;
-        this.winningTies = tiles;
-        this.winningTies$.next(this.winningTies);
+        this.winningTiles = tiles;
+        this.winningTiles$.next(this.winningTiles);
         return;
       }
     }
@@ -74,11 +74,11 @@ export class GameService {
 
     this.state = GameState.inProgress;
     this.currentPlayer = Player.one;
-    this.winningTies = [];
+    this.winningTiles = [];
 
     this.board$.next(this.board);
     this.currentPlayer$.next(this.currentPlayer);
     this.state$.next(this.state);
-    this.winningTies$.next(this.winningTies);
+    this.winningTiles$.next(this.winningTiles);
   }
 }
